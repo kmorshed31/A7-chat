@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+// Define the structure
+typedef struct {
+    char name[50];
+    int id;
+    int age;
+} Student;
+
+int main() {
+    // Create a student and assign data
+    Student student1 = {"John Doe", 12345, 20};
+
+    // Display the data
+    printf("Name: %s\n", student1.name);
+    printf("ID: %d\n", student1.id);
+    printf("Age: %d\n", student1.age);
+
+    return 0;
+}
