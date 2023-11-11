@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+typedef struct {
+    int month;
+    int day;
+    int year;
+} Date;
+
+int day_of_year(Date d) {
+    
+    int daysInMonths[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+   
+    if ((d.year % 4 == 0 && d.year % 100 != 0) || (d.year % 400 == 0))
+        daysInMonths[1] = 29;  // February has 29 days in a leap year
+
+    int dayOfYear = 0;
+    for (int i = 0; i < d.month - 1; i++)
+        dayOfYear += daysInMonths[i];
+
+    dayOfYear += d.day;
+    
+    return dayOfYear;
+}
