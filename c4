@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct {
+    int hours;
+    int minutes;
+    int seconds;
+} Time;
+
+Time elapsed_time(Time time1, Time time2) {
+    
+    int totalSeconds1 = time1.hours * 3600 + time1.minutes * 60 + time1.seconds;
+    int totalSeconds2 = time2.hours * 3600 + time2.minutes * 60 + time2.seconds;
+
+    
+    int diff = abs(totalSeconds2 - totalSeconds1);
+
+   
+    Time elapsedTime;
+    elapsedTime.hours = diff / 3600;
+    diff = diff % 3600;
+    elapsedTime.minutes = diff / 60;
+    elapsedTime.seconds = diff % 60;
+
+    return elapsedTime;
+}
+
+int main() {
+    Time time1 = {3, 45, 15};
+    Time time2 = {9, 44, 3};
+
+    Time result = elapsed_time(time1, time2);
+
+    printf("Elapsed Time: %d hours, %d minutes, %d seconds\n", result.hours, result.minutes, result.seconds);
+
+    return 0;
+}
