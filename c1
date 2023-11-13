@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Define the structure
+
 typedef struct {
     char name[50];
     int id;
@@ -8,7 +8,7 @@ typedef struct {
 } Student;
 
 int main() {
-    // Create a student and assign data
+    
     Student student1 = {"John Doe", 12345, 20};
 
     // Display the data
