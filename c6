@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+struct date {
+    int day;
+    int month;
+    int year;
+};
+
+int f(int year, int month) {
+    return month <= 2 ? year - 1 : year;
+}
+
+int g(int month) {
+    return month <= 2 ? month + 13 : month + 1;
+}
+
+int calculateN(struct date d) {
+    return 1461 * f(d.year, d.month) / 4 + 153 * g(d.month) / 5 + d.day;
+}
+
+int main() {
+    struct date date1, date2;
+
+    printf("Enter first date (MM DD YYYY): ");
+    scanf("%d %d %d", &date1.month, &date1.day, &date1.year);
+
+    printf("Enter second date (MM DD YYYY): ");
+    scanf("%d %d %d", &date2.month, &date2.day, &date2.year);
+
+    int n1 = calculateN(date1);
+    int n2 = calculateN(date2);
+
+    int elapsedDays = n2 - n1;
+    printf("Number of elapsed days: %d\n", elapsedDays);
+
+    return 0;
+}
